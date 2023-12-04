@@ -29,7 +29,7 @@ const PORT = process.env.PORT
 
 app.use(cookieParser())
 app.use(express.json());
-app.use(cors({ origin: 'https://vdoc-manish-backend.onrender.com', credentials: true }))
+app.use(cors({ origin: '*' }))
 app.use(logger)
 app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({extended: false}))
