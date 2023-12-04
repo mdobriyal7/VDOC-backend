@@ -8,6 +8,7 @@ const {
     getAllUser, 
     getUser, 
     login, 
+    refresh,
     verifyToken, 
     logout, 
     updateUser, 
@@ -24,6 +25,7 @@ userLoginRouter.route('/create').post(upload.single('profilePicture'),createUser
 
 userRouter.route('/').get(getAllUser)
 userRouter.route("/verify").get(verifyToken)
+userRouter.route("/refresh").get(refresh)
 userRouter.route("/:idOrEmail").get(getUser).put(updateUser).delete(deleteUser)
 
 
