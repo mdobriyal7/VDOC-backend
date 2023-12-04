@@ -210,10 +210,11 @@ const deleteUser = async (req, res) => {
 // }
 
 const login = async (req, res) => {
+    console.log("data",req.body)
   try {
     var user = await UserCrud.fetchByEmail(req.body.email);
     if (user) {
-      if (bcrypt.compareSync(req.body.password, user.password)) {
+      if (bcrypt.compare(req.body.password, user.password)) {
         const accessTokenPayload = {
           id: user.id,
           email: user.email,
