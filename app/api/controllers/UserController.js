@@ -245,17 +245,7 @@ const login = async (req, res) => {
         });
 
         res.json({ access_token });
-
-        res.status(200).json({
-          status: "success",
-          message: "User Logged In Successfully",
-        });
       }
-    } else {
-      res.status(200).json({
-        status: false,
-        message: "User does not exists",
-      });
     }
   } catch (error) {
     console.log(error);
