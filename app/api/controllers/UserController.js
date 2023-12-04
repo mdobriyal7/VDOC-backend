@@ -210,7 +210,7 @@ const deleteUser = async (req, res) => {
 // }
 
 const login = async (req, res) => {
-    console.log("data",req.body)
+  console.log("data", req.body);
   try {
     var user = await UserCrud.fetchByEmail(req.body.email);
     if (user) {
@@ -250,15 +250,10 @@ const login = async (req, res) => {
           status: "success",
           message: "User Logged In Successfully",
         });
-      } else {
-        res.status(401).json({
-          success: "failed",
-          message: "Invalid Password",
-        });
       }
     } else {
-      res.status(404).json({
-        status: "failed",
+      res.status(200).json({
+        status: false,
         message: "User does not exists",
       });
     }
