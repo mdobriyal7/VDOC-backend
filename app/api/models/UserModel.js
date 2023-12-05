@@ -32,9 +32,8 @@ const userSchema = new mongoose.Schema({
     minLength: 8,
   },
   user_type: {
-    type: Number,
-    required: true,
-    default: 1,
+    type: [Number],
+    default: [1],
   },
   profilePicture: {
     type: String,
