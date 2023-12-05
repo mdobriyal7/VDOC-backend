@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 // project imports
 const Database = require("./config/database.js");
 Database;
-
+const app = express();
 //cors used here
 app.use(cors(corsOptions));
 // routers
@@ -33,7 +33,7 @@ const {
 } = require("./app/api/middleware/validateUser.js");
 const logger = require("./app/api/middleware/reqLogger.js");
 
-const app = express();
+
 dotenv.config();
 const PORT = process.env.PORT;
 
