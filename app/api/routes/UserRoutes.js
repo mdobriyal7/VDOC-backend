@@ -22,10 +22,10 @@ const userLoginRouter =express.Router()
 userLoginRouter.route('/login').post(login);
 userLoginRouter.route("/logout").get(logout)
 userLoginRouter.route('/create').post(upload.single('profilePicture'),createUser);
+userLoginRouter.route("/refresh").get(refresh)
 
 userRouter.route('/').get(getAllUser)
 userRouter.route("/verify").get(verifyToken)
-userRouter.route("/refresh").get(refresh)
 userRouter.route("/:idOrEmail").get(getUser).put(updateUser).delete(deleteUser)
 
 

@@ -295,7 +295,7 @@ const refresh = (req, res) => {
     async (err, decoded) => {
       if (err) return res.status(403).json({ message: "Forbidden" });
 
-      const foundUser = await User.findOne({ email: decoded.email }).exec();
+      const foundUser = await UserModel.findOne({ email: decoded.email }).exec();
 
       if (!foundUser) return res.status(401).json({ message: "Unauthorized" });
       const accessTokenPayload = {
@@ -305,13 +305,13 @@ const refresh = (req, res) => {
         token_type: JWTTokenTypes.ACCESS_TOKEN,
       };
 
-      const accessToken = jwt.sign(
+      const access_token = jwt.sign(
         accessTokenPayload,
         process.env.ACCESS_TOKEN_SECRET,
         { expiresIn: "5m" }
       );
 
-      res.json({ accessToken });
+      res.json({ access_token });
     }
   );
 };
