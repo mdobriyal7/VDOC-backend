@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 // project imports
 const Database = require("./config/database.js");
 Database;
+const verifyJWT = require('./app/api/middleware/verifyJWT.js')
 const app = express();
 //cors used here
 app.use(cors(corsOptions));
@@ -49,7 +50,7 @@ const upload = multer({ storage });
 
 // user route
 app.use(`${process.env.API_ROOT_URL}/users/`, validateUser, userRouter);
-app.use(`${process.env.API_ROOT_URL}/auth/`, userLoginRouter);
+app.use(`${process.env.API_ROOT_URL}/auth/`, userRouter);
 app.use(
   `${process.env.API_ROOT_URL}/refreshToken`,
   validateRefreshToken,
@@ -85,7 +86,7 @@ app.use(
 app.use(
   `${process.env.API_ROOT_URL}/projects`,
   upload.none(),
-  validateUser,
+  verifyJWT,
   projectRouter.projectRouter
 );
 
