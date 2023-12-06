@@ -49,7 +49,7 @@ const storage = multer.memoryStorage(); // Store files in memory
 const upload = multer({ storage });
 
 // user route
-app.use(`${process.env.API_ROOT_URL}/users/`, validateUser, userRouter);
+app.use(`${process.env.API_ROOT_URL}/users/`, verifyJWT, userRouter);
 app.use(`${process.env.API_ROOT_URL}/auth/`, userRouter);
 app.use(
   `${process.env.API_ROOT_URL}/refreshToken`,

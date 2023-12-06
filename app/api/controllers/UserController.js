@@ -10,7 +10,7 @@ const { JWTTokenTypes } = require("../../../enums/token");
 
 // fetch all the users
 const getAllUser = async (req, res) => {
-  // console.log(req);
+  console.log(req.query);
   // await new Promise(r => setTimeout(r, 2000));
   try {
     if (req.body.data) {
