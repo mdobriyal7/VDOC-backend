@@ -20,7 +20,7 @@ const {
 const userRouter = express.Router()
 const userLoginRouter =express.Router()
 userRouter.route('/login').post(login);
-userLoginRouter.route("/logout").get(logout)
+userRouter.route("/logout").post(logout)
 userLoginRouter.route('/create').post(upload.single('profilePicture'),createUser);
 userRouter.route("/refresh").get(refresh)
 

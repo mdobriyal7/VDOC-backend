@@ -72,9 +72,10 @@ const getProject = async (req, res) => {
 const createProject = async (req, res) => {
   try {
     const deal = await fetchById(req.body.dealId)
+    console.log("deal",req.body.id)
     if (deal) {
       const projectData = ProjectModel({
-        createdBy: req.body.id,
+        createdBy: req.body.createdBy,
         projectName: req.body.projectName,
         projectType: req.body.projectType,
         description: req.body.description,

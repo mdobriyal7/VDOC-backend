@@ -194,7 +194,9 @@ const downloadFiles = async (req, res) => {
     
 const updateFileStatus = async (req, res) => {
     try {
+        console.log(req.params)
         const deal = await CloseWonDeals.findById(req.params.id)
+        console.log(deal);
         const fileIndex = deal.documents.findIndex(doc => doc._id.toString() === req.body.fileId)
         if (fileIndex === -1) {
             const clientFileIndex = deal.clientDocuments.find(doc => doc._id.toString() === req.body.fileId);
@@ -251,7 +253,7 @@ const sendFilesToClient = async (req, res) => {
         
         const mailOptions = { 
             from: process.env.MAIL_SENDER,
-            to: "shanutyagi010@gmail.com",
+            to: "manish.virtualrealdesign@gmail.com",
             subject: "Test mail for sending file",
             html:`
             <p>Here are the links to your files:</p>

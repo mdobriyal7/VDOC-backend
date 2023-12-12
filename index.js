@@ -62,7 +62,7 @@ app.use(`${process.env.API_ROOT_URL}/`, ClosedWonRouter);
 // Deals Route
 app.use(
   `${process.env.API_ROOT_URL}/deals`,
-  validateUser,
+  verifyJWT,
   DealsRouter.dealRouter
 );
 
@@ -74,8 +74,8 @@ app.use(
 );
 app.use(
   `${process.env.API_ROOT_URL}/files`,
+  verifyJWT,
   upload.array("file"),
-  validateUser,
   fileUploadRouter
 );
 app.use(
